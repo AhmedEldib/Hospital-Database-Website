@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+        <title>Hospital Database</title>
+        <link  rel="stylesheet"href="/static/style.css" >
+        
+        <script type="text/javascript">
+          $(document).ready(function() {
+              $('dropdown-toggle').dropdown()
+          });
+          </script>
+        
+        <style>
+           * {
+          box-sizing: border-box;
+        }
+        
+        input[type=text], select, textarea {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          resize: vertical;
+        }
+        
+        .btn-primary[type=submit] {
+          background-color: #45a049;
+        }
+
+        .btn-primary[type=submit]:hover {
+          background-color: #45a049;
+        }
+        
+        label {
+          padding: 12px 12px 12px 0;
+          display: inline-block;
+        }
+
+        .container-fluid {
+          border-radius: 5px;
+          padding: 60px 30px;
+        }
+        
+        .col-25 {
+          float: left;
+          width: 25%;
+          margin-top: 6px;
+        }
+        
+        .col-75 {
+          float: left;
+          width: 75%;
+          margin-top: 6px;
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+          .col-25, .col-75, input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+          }
+        }
+
+        body {
+            background-image: url("/static/background3.jpg");
+            color: white;
+          }
+
+        .T_row :hover{
+            
+            background-color: rgba(80, 79, 79, 0.63);
+        }
+        </style>
+
+
+    </head>
+<body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" >
+    <a class="navbar-brand" href="{{ url_for('Home') }}">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            View
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('Patient') }}">Patient</a>
+            <a class="dropdown-item" href="{{ url_for('Doctor') }}">Doctor</a>
+            <a class="dropdown-item" href="{{ url_for('Nurse') }}">Nurse</a>
+            <a class="dropdown-item" href="{{ url_for('Technician') }}">Technician</a>
+            <a class="dropdown-item" href="{{ url_for('Machine') }}">Machine</a>
+            <a class="dropdown-item" href="{{ url_for('Employee') }}">Employee</a>
+            <a class="dropdown-item" href="{{ url_for('room') }}">Room</a>
+          </div>
+        </li>
+          
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Add
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('addpatient') }}">Patient</a>
+            <a class="dropdown-item" href="{{ url_for('adddoctor') }}">Doctor</a>
+            <a class="dropdown-item" href="{{ url_for('addnurse') }}">Nurse</a>
+            <a class="dropdown-item" href="{{ url_for('addtech') }}">Technician</a>
+            <a class="dropdown-item" href="{{ url_for('addmachine') }}">Machine</a>
+            <a class="dropdown-item" href="{{ url_for('addemployee') }}">Employee</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Operations
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('b_operation') }}">Begin Operation</a>
+            <a class="dropdown-item" href="{{ url_for('f_operation') }}">Finish Operation</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+</body>
+</html>
